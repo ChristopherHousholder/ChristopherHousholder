@@ -1,0 +1,211 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Projects | Christopher Housholder</title>
+  <link rel="stylesheet" href="assets/css/style.css" />
+</head>
+<body>
+
+<header class="header-area header-sticky">
+  <div class="container">
+    <div class="row">
+      <div class="col-12">
+        <nav class="main-nav">
+          <a href="index.html" class="logo"><img src="assets/images/logo.png" alt=""></a>
+          <ul class="nav">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="projects.html" class="active">Projects</a></li>
+            <li><a href="resume.html">Resume</a></li>
+            <li><a href="profile.html">Profile <img src="assets/images/profile-header.png" alt=""></a></li>
+          </ul>
+          <a class='menu-trigger'><span>Menu</span></a>
+        </nav>
+      </div>
+    </div>
+  </div>
+</header>
+
+<section class="reflection-section-title">
+  <h2>PROJECT SHOWCASE</h2>
+  <p>Browse major projects — complete with descriptions, context, and visuals — in an interactive format.</p>
+</section>
+
+<section class="project-showcase-container">
+
+  <!-- Left: Carousel -->
+  <div class="carousel-container">
+    <div class="carousel">
+
+      <div class="reflection-block active">
+        <div class="carousel-controls-inside">
+          <button onclick="prevSlide()">‹</button>
+          <button onclick="nextSlide()">›</button>
+        </div>
+        <h3>VC Dimension on Hamming Subsets</h3>
+        <div class="context">Math Research with Dr. Steven Senger, 2025</div>
+        <div class="body"></div>
+        <img src="assets/images/Portfolio2.png" alt="VC Dimension Poster" class="reflection-poster modal-trigger" data-img="assets/images/portfolio2.png" />
+      </div>
+
+      <div class="reflection-block">
+        <div class="carousel-controls-inside">
+          <button onclick="prevSlide()">‹</button>
+          <button onclick="nextSlide()">›</button>
+        </div>
+        <h3>Encoder-Decoder Redundancy</h3>
+        <div class="context">Deep Learning Research with Dr. Yifan Zhang, 2025</div>
+        <div class="body"></div>
+        <img src="assets/images/Portfolio1.png" alt="Encoder-Decoder Poster" class="reflection-poster modal-trigger" data-img="assets/images/portfolio1.png" />
+      </div>
+
+      <div class="reflection-block">
+        <div class="carousel-controls-inside">
+          <button onclick="prevSlide()">‹</button>
+          <button onclick="nextSlide()">›</button>
+        </div>
+        <h3>Explicit Repeated Dot Product Trees</h3>
+        <div class="context">Math Research with Dr. Steven Senger, 2023–2024</div>
+        <div class="body"></div>
+        <img src="assets/images/Portfolio3.png" alt="Dot Product Trees Poster" class="reflection-poster modal-trigger" data-img="assets/images/portfolio3.png" />
+      </div>
+
+      <div class="reflection-block">
+        <div class="carousel-controls-inside">
+          <button onclick="prevSlide()">‹</button>
+          <button onclick="nextSlide()">›</button>
+        </div>
+        <h3>Convergence of Nonlocal Curvature</h3>
+        <div class="context">Math Research with Dr. Animesh Biswas, 2025</div>
+        <div class="body"></div>
+        <img src="assets/images/Portfolio4.png" alt="Nonlocal Curvature Poster" class="reflection-poster modal-trigger" data-img="assets/images/portfolio4.png" />
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Right: Dynamic Reflection -->
+  <div class="reflection-summary">
+    <h3>Reflection</h3>
+    <p><strong>Context:</strong> <span id="reflection-context"></span></p>
+    <p><strong>Problem Solved:</strong> <span id="reflection-problem"></span></p>
+    <p><strong>Tools Used:</strong> <span id="reflection-tools"></span></p>
+    <p><strong>Screenshots:</strong> <a href="#" target="_blank" id="reflection-link">View Poster</a></p>
+    <p><strong>Outcome:</strong> <span id="reflection-outcome"></span></p>
+    <p><strong>Next Time:</strong> <span id="reflection-next"></span></p>
+  </div>
+
+</section>
+
+<!-- Modal -->
+<div id="imgModal" class="modal">
+  <span class="close" onclick="closeModal()">&times;</span>
+  <img class="modal-img" id="modalImg" src="" alt="Enlarged Poster">
+</div>
+
+<!-- Scripts -->
+<script>
+  const reflectionData = [
+    {
+      context: "Research with Dr. Steven Senger, MTH 780",
+      problem: "Investigated the VC dimension of Hamming graph subsets under additional constraints.",
+      tools: "Python, combinatorics, LaTeX, graph theory",
+      link: "assets/images/Portfolio2.png",
+      outcome: "This was my most rigorous combinatorial project to date. I learned how much I still don't know — especially when theory collides with structured objects. I discovered edge cases where conventional intuition fails and ultimately submitted the paper for publication with a better understanding of where my strengths and gaps lie.",
+      next: "Next time, I would slow down early to formalize assumptions more cleanly. I spent too long chasing counterexamples that didn’t matter because I hadn’t yet nailed the definition tight enough. Starting in SageMath or doing more trivial cases might’ve helped lock that down earlier."
+    },
+    {
+      context: "Deep Learning Research with Dr. Yifan Zhang, 2025",
+      problem: "Analyzed representational redundancy in encoder-decoder pairs using sequence models.",
+      tools: "PyTorch, Transformer models, entropy analysis, linear algebra",
+      link: "assets/images/Portfolio1.png",
+      outcome: "This project helped me bridge theory and implementation. I realized that even in deep learning, there's often a missing 'why' behind architecture choices. I dug into entropy, redundancy, and geometry to form a real hypothesis — something I had never done before in machine learning.",
+      next: "I'd prototype faster and fail earlier. I was hesitant to build too soon, waiting for everything to be clean. But testing ideas, even when messy, teaches you faster where the cracks are."
+    },
+    {
+      context: "Math Research with Dr. Steven Senger",
+      problem: "Constructed and analyzed explicit dot-product tree structures with repeated outputs.",
+      tools: "Combinatorics, Python, graph algorithms, LaTeX",
+      link: "assets/images/Portfolio3.png",
+      outcome: "This was my first real research experience. It taught me how to actually write math — not just solve problems. I saw how hard it is to make a statement both true and readable, and how subtle errors can live in your blind spots for weeks.",
+      next: "I’d ask more dumb questions earlier. I waited too long trying to figure things out on my own that Dr. Senger could’ve clarified in two sentences. Turns out, learning faster matters more than looking smart."
+    },
+    {
+      context: "Math Research with Dr. Animesh Biswas",
+      problem: "Explored discrete analogues of nonlocal curvature convergence using functional analysis.",
+      tools: "Measure theory, weak convergence, numerical methods, LaTeX",
+      link: "assets/images/Portfolio4.png",
+      outcome: "This was the deepest theoretical project I’ve taken on so far. I struggled with the abstraction at times, but I also pushed through more than I ever have. It helped me see how functional analysis actually behaves under discretization, and how powerful compactness can be.",
+      next: "Next time I’d split the work into layers. I overloaded myself trying to simultaneously understand the theory, the code, and the math writing. Treating those as stages instead of a single wall might’ve let me breathe more."
+    }
+  ];
+
+  const blocks = document.querySelectorAll('.reflection-block');
+  let current = 0;
+
+  function showSlide(index) {
+    blocks.forEach((block, i) => {
+      block.classList.toggle('active', i === index);
+    });
+    const r = reflectionData[index];
+    document.getElementById("reflection-context").textContent = r.context;
+    document.getElementById("reflection-problem").textContent = r.problem;
+    document.getElementById("reflection-tools").textContent = r.tools;
+    document.getElementById("reflection-link").href = r.link;
+    document.getElementById("reflection-outcome").textContent = r.outcome;
+    document.getElementById("reflection-next").textContent = r.next;
+  }
+
+  function nextSlide() {
+    current = (current + 1) % blocks.length;
+    showSlide(current);
+  }
+
+  function prevSlide() {
+    current = (current - 1 + blocks.length) % blocks.length;
+    showSlide(current);
+  }
+
+  // Modal Logic
+  const modal = document.getElementById("imgModal");
+  const modalImg = document.getElementById("modalImg");
+  const triggers = document.querySelectorAll(".modal-trigger");
+
+  triggers.forEach(img => {
+    img.addEventListener("click", () => {
+      modal.style.display = "block";
+      modalImg.src = img.dataset.img;
+    });
+  });
+
+  function closeModal() {
+    modal.style.display = "none";
+  }
+
+  window.addEventListener("click", (event) => {
+    if (event.target === modal) {
+      modal.style.display = "none";
+    }
+  });
+
+  document.addEventListener("DOMContentLoaded", () => {
+    showSlide(0);
+  });
+</script>
+
+
+<!-- Footer -->
+<footer>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-12">
+        <p>Copyright © 2025 <a href="#">Christopher Housholder</a>. All rights reserved.</p>
+      </div>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
